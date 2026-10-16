@@ -1,0 +1,33 @@
+<footer>
+    <div class="social">
+        {%- for link in config.extra.social.link -%}
+        {%- if link.img is starting_with(pat='http') -%}{%- set img = link.img -%}{%- else -%}{%- set img = get_url(path=link.img) -%}{%- endif -%}
+        <a rel="me" href="{{link.url}}"><div><img alt="{{link.name}}" class="icon" src="{{img}}"/> <span>{{link.name}}</span></div></a>
+        {% endfor -%}
+    </div>
+
+    <div>
+        <div> </div> 
+        <div> </div>
+        <div> </div>
+        <div></div>
+    </div>
+
+    <div>
+        {% for link in config.extra.footer.links %}
+            {#- hack to get page or section #}
+            {%- if link is ending_with(pat="_index.md") -%}
+            {%- set s = get_section(path=link) -%}
+                <div><a href="{{ s.permalink }}">{{s.title | safe}}</a></div>
+            {%- else -%}
+            {%- set p = get_page(path=link) -%}
+                <div><a href="{{ p.permalink }}">{{p.title | safe}}</a></div>
+            {%- endif -%}
+        {% endfor %}
+    </div>
+
+    <div>
+        <p>Website made with <a href="https://www.getzola.org/">Zola</a> and <a href="https://git.lacontrevoie.fr/HugoTrentesaux">seagull theme</a></p>
+        
+    </div>
+</footer>

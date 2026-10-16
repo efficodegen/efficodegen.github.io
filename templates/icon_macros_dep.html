@@ -1,0 +1,19 @@
+{# === these macro are used in icon macros === #}
+
+{% component i.aria() -%}
+aria-hidden="true" role="img" focusable="false"
+{%- endcomponent i.aria %} 
+
+{% component i.printsize(size) -%}
+width="{{size}}" height="{{size}}"
+{%- endcomponent i.printsize %} 
+
+{% component i.xmlns() -%}
+xmlns="http://www.w3.org/2000/svg"
+{%- endcomponent i.xmlns %} 
+
+{% component i.svg(size="24px") -%}
+<svg {{ <i.printsize size={size} /> }} {{<i.aria /> }} {{<i.xmlns />}}>
+    {{body}}
+</svg>
+{%- endcomponent i.svg %}

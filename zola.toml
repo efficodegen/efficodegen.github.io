@@ -1,0 +1,57 @@
+# The URL the site will be built for
+base_url = "https://example.com"
+
+compile_sass = true
+
+# Whether to build a search index to be used later on by a JavaScript library
+build_search_index = false
+
+# Do build rss.xml
+generate_feeds = true
+feed_filenames = ["rss.xml"]
+
+taxonomies = [{ name = "authors" }, { name = "tags" }, { name = "category" }]
+
+default_language = "fr"
+
+[markdown.highlighting]
+theme = "github-light"
+
+[extra]
+# Put all your custom variables here
+name = "EffiCodeGen"
+logo = "img/background.jpg"
+description = "EffiCodeGen Workshop website"
+
+
+# Number of articles to display on homepage
+[extra.homepage]
+n_articles = 5
+
+# This configures the navigation menu
+[extra.nav]
+links = [
+    # "_index.md",
+]
+
+# This configures the footer menu
+[extra.footer]
+links = ["_index.md", "about.md", "contact.md"]
+
+# the following links will appear in the footer
+[[extra.social.link]]
+name = "Mastodon"
+url = "#"
+img = "https://cdn.simpleicons.org/mastodon/FFF"
+
+
+
+[extra.theme]
+toc_title = "Table of content"
+feed_thumb_height = 240
+
+[extra.theme.date]
+# Sans `locale`, `format` reste du strftime. Une date ISO n'a pas besoin de
+# locale — on la laisse vide plutôt que d'imposer une langue au thème.
+format = "%Y-%m-%d"
+locale = ""

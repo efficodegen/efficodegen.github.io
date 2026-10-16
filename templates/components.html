@@ -1,0 +1,18 @@
+{#
+    note component with icon and border
+    display: icon / block / both
+    type: neutral / ok / info / warning / error
+    size: small / medium / large
+#}
+
+{% component note(display: string = "both", type: string = "neutral", size: string = "small", markdown: bool = false) %}
+<div class="note
+{%- if display == 'icon' %} note-icon note-icon-{{size}} note-icon-{{type}}
+{%- elif display == 'block' %} note-block note-{{type}}
+{%- elif display == 'both' %} note-icon note-icon-{{size}} note-icon-{{type}} note-block note-{{type}}
+{%- endif %}">
+{% if markdown %}{{ body | markdown | safe }}
+{% else %}{{ body | safe }}
+{% endif %}
+</div>
+{% endcomponent note %}
